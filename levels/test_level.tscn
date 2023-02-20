@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7l7de2rrm8ru"]
+
+[ext_resource type="PackedScene" path="res://levels/classroom.tscn" id="3_udnpb"]
+[ext_resource type="PackedScene" uid="uid://bnyejj7053et1" path="res://character/character.tscn" id="4_2yu0n"]
+[ext_resource type="PackedScene" uid="uid://c7uc5t7c0yj0o" path="res://ui/ui.tscn" id="5_g84lh"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.08614, 0)
+
+[node name="Character" parent="." instance=ExtResource("4_2yu0n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="UI" parent="." instance=ExtResource("5_g84lh")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0, 0)
+
+[node name="Classroom" parent="." instance=ExtResource("3_udnpb")]

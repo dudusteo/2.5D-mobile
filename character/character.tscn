@@ -1,0 +1,105 @@
+[gd_scene load_steps=15 format=3 uid="uid://bnyejj7053et1"]
+
+[ext_resource type="PackedScene" uid="uid://dt40wf71dmq1i" path="res://entity/entity.tscn" id="1_2xlfx"]
+[ext_resource type="Texture2D" uid="uid://3hmljpvxvn4c" path="res://character/chara.png" id="2_idhtb"]
+[ext_resource type="Texture2D" uid="uid://c3cwrmedlxexr" path="res://character/character.png" id="2_k7kqh"]
+[ext_resource type="PackedScene" uid="uid://dmlnoou64g484" path="res://modules/interaction/interaction.tscn" id="3_ysa7w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2phi"]
+atlas = ExtResource("2_k7kqh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdho0"]
+atlas = ExtResource("2_k7kqh")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_seenx"]
+atlas = ExtResource("2_k7kqh")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xadol"]
+atlas = ExtResource("2_k7kqh")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yu2i"]
+atlas = ExtResource("2_k7kqh")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gduku"]
+atlas = ExtResource("2_k7kqh")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvjxi"]
+atlas = ExtResource("2_k7kqh")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_02x1x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_idhtb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2phi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdho0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_seenx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xadol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yu2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gduku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvjxi")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s2a41"]
+size = Vector3(0.6, 1.6, 0.6)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n6s01"]
+height = 1.6
+radius = 1.0
+
+[node name="Character" instance=ExtResource("1_2xlfx")]
+collision_layer = 2
+
+[node name="AnimatedSprite3D" parent="." index="0"]
+pixel_size = 0.025
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_02x1x")
+animation = &"idle"
+speed_scale = 2.0
+
+[node name="CollisionShape3D" parent="." index="1"]
+shape = SubResource("BoxShape3D_s2a41")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0.4, 0)
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" index="0"]
+
+[node name="Interaction" parent="." index="3" instance=ExtResource("3_ysa7w")]
+interaction_parent = NodePath("..")
+
+[node name="CollisionShape3D" parent="Interaction" index="0"]
+shape = SubResource("CylinderShape3D_n6s01")
+
+[editable path="Interaction"]

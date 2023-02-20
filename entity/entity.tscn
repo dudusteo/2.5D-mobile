@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt40wf71dmq1i"]
+
+[ext_resource type="Script" path="res://entity/entity.gd" id="1_cpioc"]
+
+[node name="Entity" type="CharacterBody3D"]
+script = ExtResource("1_cpioc")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]

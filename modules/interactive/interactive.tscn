@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo6x5uoft3wj5"]
+
+[ext_resource type="Script" path="res://modules/interactive/interactive.gd" id="1_b28rd"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tnoex"]
+width = 64
+height = 64
+
+[node name="Interactive" type="Area3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_b28rd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="Notify" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
+texture = SubResource("NoiseTexture2D_tnoex")
