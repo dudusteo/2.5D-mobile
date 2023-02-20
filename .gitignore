@@ -17,3 +17,7 @@ mono_crash.*.json
 # Builds ignore
 
 builds/
+
+#blender
+
+*.blend1
