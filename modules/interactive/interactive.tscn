@@ -16,4 +16,6 @@ script = ExtResource("1_b28rd")
 [node name="Notify" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 visible = false
+billboard = 2
+no_depth_test = true
 texture = SubResource("NoiseTexture2D_tnoex")

@@ -23,7 +23,7 @@ texture = ExtResource("3_ocywe")
 [node name="Sit" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
-[node name="Interactable" parent="Sit" instance=ExtResource("2_rc8mx")]
+[node name="Interactive" parent="Sit" instance=ExtResource("2_rc8mx")]
 
 [node name="chair" parent="Sit" instance=ExtResource("4_iendl")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.25, -0.5, 0)
@@ -33,9 +33,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.25, 
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sit"]
 shape = SubResource("BoxShape3D_l4x8x")
-
-[node name="blackboard" parent="." instance=ExtResource("6_2vgs4")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, -6)
 
 [node name="classroom" parent="." instance=ExtResource("7_df14u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -55,3 +52,8 @@ shape = SubResource("WorldBoundaryShape3D_0ueat")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 depth = 0.0
 polygon = PackedVector2Array(8, 8, -8, 8, -8, 0, 8, 0)
+
+[node name="Interactive" parent="." instance=ExtResource("2_rc8mx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, -6)
+
+[node name="blackboard" parent="Interactive" instance=ExtResource("6_2vgs4")]
