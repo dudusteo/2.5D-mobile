@@ -11,9 +11,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_v1fc4")
 
-[node name="HBoxContainer" type="GridContainer" parent="."]
+[node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,27 +23,31 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 3
 
-[node name="TopLeft" type="Control" parent="HBoxContainer"]
+[node name="TopLeft" type="Control" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 
-[node name="TopMiddle" type="Control" parent="HBoxContainer"]
+[node name="TopMiddle" type="Control" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 
-[node name="TopRight" type="Control" parent="HBoxContainer"]
+[node name="TopRight" type="Control" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 
-[node name="BottomLeft" type="Control" parent="HBoxContainer"]
+[node name="BottomLeft" type="Control" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 
-[node name="Button" parent="HBoxContainer/BottomLeft" instance=ExtResource("3_gwbcq")]
+[node name="Button" parent="GridContainer/BottomLeft" instance=ExtResource("3_gwbcq")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -56,17 +61,19 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BottomMiddle" type="Control" parent="HBoxContainer"]
+[node name="BottomMiddle" type="Control" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 
-[node name="BottomRight" type="Control" parent="HBoxContainer"]
+[node name="BottomRight" type="Control" parent="GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 
-[node name="Virtual joystick" parent="HBoxContainer/BottomRight" instance=ExtResource("3_bttcx")]
+[node name="Virtual joystick" parent="GridContainer/BottomRight" instance=ExtResource("3_bttcx")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

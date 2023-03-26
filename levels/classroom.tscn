@@ -14,14 +14,15 @@ size = Vector3(1.25, 1, 1)
 
 [node name="Classroom" type="Node3D"]
 
-[node name="Quest" parent="." instance=ExtResource("2_rc8mx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
-
-[node name="Sprite3D" type="Sprite3D" parent="Quest"]
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01482, 0, 0)
 texture = ExtResource("3_ocywe")
+
+[node name="Interactive" parent="Sprite3D" instance=ExtResource("2_rc8mx")]
 
 [node name="Sit" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+input_ray_pickable = false
 
 [node name="Interactive" parent="Sit" instance=ExtResource("2_rc8mx")]
 
@@ -53,7 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 depth = 0.0
 polygon = PackedVector2Array(8, 8, -8, 8, -8, 0, 8, 0)
 
-[node name="Interactive" parent="." instance=ExtResource("2_rc8mx")]
+[node name="blackboard" parent="." instance=ExtResource("6_2vgs4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, -6)
 
-[node name="blackboard" parent="Interactive" instance=ExtResource("6_2vgs4")]
+[node name="Interactive" parent="blackboard" instance=ExtResource("2_rc8mx")]
