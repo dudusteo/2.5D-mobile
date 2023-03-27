@@ -1,6 +1,7 @@
 extends Area3D
 
 var master_node
+var interactionParent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +19,7 @@ func _ready():
 
 	
 func interaction_can_interact(interactionComponentParent : Node) -> bool:
+	interactionParent = interactionComponentParent
 	return interactionComponentParent is CharacterBody3D
 
 func interaction_interact(_interactionComponentParent : Node) -> void:
@@ -26,5 +28,5 @@ func interaction_interact(_interactionComponentParent : Node) -> void:
 
 
 func _on_input_event(camera, event, position, normal, shape_idx):
-	if event is InputEventMouseButton:
-		print("mouse", self)
+	if (event is InputEventMouseButton or event is InputEventScreenTouch) && $Notify.visible:
+		interaction_interact(interactionParent)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnh5spnkrjcv0"]
+[gd_scene load_steps=12 format=3 uid="uid://dnh5spnkrjcv0"]
 
 [ext_resource type="PackedScene" uid="uid://bo6x5uoft3wj5" path="res://modules/interactive/interactive.tscn" id="2_rc8mx"]
 [ext_resource type="Texture2D" uid="uid://dtbk7x4laxqle" path="res://models/candy/candy.png" id="3_ocywe"]
@@ -7,24 +7,42 @@
 [ext_resource type="PackedScene" uid="uid://cjhhsdswjvsy3" path="res://blender/blackboard.blend" id="6_2vgs4"]
 [ext_resource type="PackedScene" uid="uid://n0jgrl4q85oo" path="res://blender/classroom.blend" id="7_df14u"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ihtm"]
+size = Vector3(0.5, 1.8, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hklqm"]
+size = Vector3(1.25, 2, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_l4x8x"]
 size = Vector3(1.25, 1, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0ueat"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_5bnvu"]
+size = Vector3(0.1, 2.075, 4)
+
 [node name="Classroom" type="Node3D"]
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01482, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 texture = ExtResource("3_ocywe")
 
 [node name="Interactive" parent="Sprite3D" instance=ExtResource("2_rc8mx")]
+
+[node name="CollisionShape3D" parent="Sprite3D/Interactive" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_3ihtm")
 
 [node name="Sit" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 input_ray_pickable = false
 
 [node name="Interactive" parent="Sit" instance=ExtResource("2_rc8mx")]
+
+[node name="CollisionShape3D" parent="Sit/Interactive" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+shape = SubResource("BoxShape3D_hklqm")
 
 [node name="chair" parent="Sit" instance=ExtResource("4_iendl")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.25, -0.5, 0)
@@ -58,3 +76,14 @@ polygon = PackedVector2Array(8, 8, -8, 8, -8, 0, 8, 0)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, -6)
 
 [node name="Interactive" parent="blackboard" instance=ExtResource("2_rc8mx")]
+
+[node name="CollisionShape3D" parent="blackboard/Interactive" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.288, 0)
+shape = SubResource("BoxShape3D_5bnvu")
+
+[node name="Notify" parent="blackboard/Interactive" index="1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)
+
+[editable path="Sprite3D/Interactive"]
+[editable path="Sit/Interactive"]
+[editable path="blackboard/Interactive"]
