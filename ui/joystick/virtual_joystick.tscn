@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://o68fvxcqhdr6" path="res://ui/joystick/textures/joystick_tip_arrows.png" id="2"]
 [ext_resource type="Script" path="res://ui/joystick/virtual_joystick.gd" id="3"]
 
-[node name="Virtual joystick" type="Control"]
+[node name="VirtualJoystick" type="Control"]
 modulate = Color(1, 1, 1, 0.509804)
 layout_mode = 3
 anchors_preset = 3

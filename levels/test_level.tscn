@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bnyejj7053et1" path="res://character/character.tscn" id="4_2yu0n"]
 [ext_resource type="PackedScene" uid="uid://c7uc5t7c0yj0o" path="res://ui/ui.tscn" id="5_g84lh"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Scene" type="Node3D"]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.08614, 0)

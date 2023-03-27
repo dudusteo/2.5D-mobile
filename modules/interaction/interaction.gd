@@ -1,5 +1,6 @@
 extends Area3D
 
+@onready var Textbox: Control = get_node("/root/Scene/UI/Textbox")
 @export var interaction_parent : NodePath
 
 signal on_interactable_changed(newInteractable)
@@ -12,7 +13,8 @@ func _process(_delta):
 	if (interaction_target != null and Input.is_action_just_pressed("ui_accept")):
 		# If so, we'll call interaction_interact() if our target supports it
 		if (interaction_target.has_method("interaction_interact")):
-			interaction_target.interaction_interact(self)
+			Textbox.add_text(interaction_target.interaction_interact(self))
+			
 
 
 func _on_area_entered(area):
@@ -28,16 +30,17 @@ func _on_area_entered(area):
 		return
 		
 	if interaction_target != null:
-		interaction_target.get_node("Notify").visible = false
+		interaction_target.get_node("Notify").hide()
 	
 	# Store the thing we'll be interacting with, so we can trigger it from _process
-	area.get_node("Notify").visible = true
+	area.get_node("Notify").show()
 	interaction_target = area
 	emit_signal("on_interactable_changed", interaction_target)
 
 
 func _on_area_exited(area):
 	if (area == interaction_target):
-		interaction_target.get_node("Notify").visible = false
+		Textbox.hide_textbox()
+		interaction_target.get_node("Notify").hide()
 		interaction_target = null
 		emit_signal("on_interactable_changed", null)

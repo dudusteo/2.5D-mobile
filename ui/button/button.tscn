@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://u3hhvaxvidtl"]
+[gd_scene load_steps=2 format=3 uid="uid://u3hhvaxvidtl"]
 
-[ext_resource type="Script" path="res://ui/button/button.gd" id="1_fsx48"]
 [ext_resource type="Texture2D" uid="uid://baf2t7t4tl3v4" path="res://ui/button/textures/button.png" id="2_gokmn"]
 
 [node name="Button" type="Control"]
@@ -11,8 +10,7 @@ anchor_bottom = 1.0
 offset_top = -250.0
 offset_right = 250.0
 grow_vertical = 0
-script = ExtResource("1_fsx48")
-action_accept = "ui_select"
+mouse_filter = 1
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -27,3 +25,4 @@ grow_vertical = 2
 [node name="Attack" type="TouchScreenButton" parent="Margin"]
 position = Vector2(-32, -32)
 texture_normal = ExtResource("2_gokmn")
+action = "ui_select"

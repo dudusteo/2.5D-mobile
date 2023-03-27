@@ -33,57 +33,57 @@ texture = ExtResource("3_ocywe")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_3ihtm")
 
-[node name="Sit" type="StaticBody3D" parent="."]
+[node name="Desk" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 input_ray_pickable = false
 
-[node name="Interactive" parent="Sit" instance=ExtResource("2_rc8mx")]
+[node name="Interactive" parent="Desk" instance=ExtResource("2_rc8mx")]
 
-[node name="CollisionShape3D" parent="Sit/Interactive" index="0"]
+[node name="CollisionShape3D" parent="Desk/Interactive" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 visible = false
 shape = SubResource("BoxShape3D_hklqm")
 
-[node name="chair" parent="Sit" instance=ExtResource("4_iendl")]
+[node name="chair" parent="Desk" instance=ExtResource("4_iendl")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.25, -0.5, 0)
 
-[node name="desk" parent="Sit" instance=ExtResource("5_qtqck")]
+[node name="desk" parent="Desk" instance=ExtResource("5_qtqck")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.25, -0.5, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sit"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Desk"]
 shape = SubResource("BoxShape3D_l4x8x")
 
-[node name="classroom" parent="." instance=ExtResource("7_df14u")]
+[node name="Classroom" parent="." instance=ExtResource("7_df14u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
-[node name="Level" type="StaticBody3D" parent="classroom"]
+[node name="Level" type="StaticBody3D" parent="Classroom"]
 collision_mask = 0
 
-[node name="Wall" type="CollisionPolygon3D" parent="classroom/Level"]
+[node name="Wall" type="CollisionPolygon3D" parent="Classroom/Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
 depth = 0.0
 polygon = PackedVector2Array(8, 3.5, -8, 3.5, -8, 0, 8, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="classroom/Level"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Classroom/Level"]
 shape = SubResource("WorldBoundaryShape3D_0ueat")
 
-[node name="Wall2" type="CollisionPolygon3D" parent="classroom/Level"]
+[node name="Wall2" type="CollisionPolygon3D" parent="Classroom/Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
 depth = 0.0
 polygon = PackedVector2Array(8, 8, -8, 8, -8, 0, 8, 0)
 
-[node name="blackboard" parent="." instance=ExtResource("6_2vgs4")]
+[node name="Blackboard" parent="." instance=ExtResource("6_2vgs4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, -6)
 
-[node name="Interactive" parent="blackboard" instance=ExtResource("2_rc8mx")]
+[node name="Interactive" parent="Blackboard" instance=ExtResource("2_rc8mx")]
 
-[node name="CollisionShape3D" parent="blackboard/Interactive" index="0"]
+[node name="CollisionShape3D" parent="Blackboard/Interactive" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 0.288, 0)
 shape = SubResource("BoxShape3D_5bnvu")
 
-[node name="Notify" parent="blackboard/Interactive" index="1"]
+[node name="Notify" parent="Blackboard/Interactive" index="1"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)
 
 [editable path="Sprite3D/Interactive"]
-[editable path="Sit/Interactive"]
-[editable path="blackboard/Interactive"]
+[editable path="Desk/Interactive"]
+[editable path="Blackboard/Interactive"]

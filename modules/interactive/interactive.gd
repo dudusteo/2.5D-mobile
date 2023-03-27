@@ -22,11 +22,12 @@ func interaction_can_interact(interactionComponentParent : Node) -> bool:
 	interactionParent = interactionComponentParent
 	return interactionComponentParent is CharacterBody3D
 
-func interaction_interact(_interactionComponentParent : Node) -> void:
+func interaction_interact(_interactionComponentParent : Node) -> String:
 	print("Interacted with object!")
-	master_node.queue_free()
+	return master_node.name
+	#master_node.queue_free()
 
 
 func _on_input_event(camera, event, position, normal, shape_idx):
-	if (event is InputEventMouseButton or event is InputEventScreenTouch) && $Notify.visible:
+	if event is InputEventScreenTouch && $Notify.visible:
 		interaction_interact(interactionParent)

@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://b52bih0rimosc"]
+
+[ext_resource type="Script" path="res://ui/textbox/textbox.gd" id="1_7ffxm"]
+[ext_resource type="Theme" uid="uid://bv62ku0o0fkjp" path="res://ui/ui_theme.tres" id="1_n7x0x"]
+
+[node name="Textbox" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_7ffxm")
+character_speed = 25
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 188.0
+grow_horizontal = 2
+theme = ExtResource("1_n7x0x")
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_n7x0x")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+visible_characters = 0
+visible_ratio = 0.0

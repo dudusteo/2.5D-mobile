@@ -5,8 +5,6 @@ extends CharacterBody3D
 const SPEED = 4.0
 const JUMP_VELOCITY = 4.5
 
-var isAttacking = false
-
 func _ready():
 	pass
 
@@ -17,9 +15,9 @@ func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
+	
 	# Handle Jump.
-	if (Input.is_action_just_pressed("ui_select") or isAttacking) and is_on_floor():
+	if Input.is_action_just_pressed("ui_select") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -46,11 +44,3 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
-
-func _on_ui_attack_button_clicked():
-	if(!isAttacking):
-		isAttacking = true
-		await get_tree().create_timer(0.2).timeout
-	isAttacking = false
-	pass # Replace with function body.
-	
