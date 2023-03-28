@@ -27,3 +27,11 @@ func add_text(next_text):
 	label.visible_characters = 0
 	var tween = create_tween()
 	tween.tween_property(label, "visible_characters", label.text.length(), float(label.text.length()) / character_speed)
+	
+func _on_interaction_interacted(source):
+	print("hi there")
+	add_text(source.name)
+	
+func _on_interactable_changed(newInteractable):
+	print("changed to", newInteractable)
+	hide_textbox()
