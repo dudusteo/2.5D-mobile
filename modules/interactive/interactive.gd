@@ -5,7 +5,6 @@ signal interaction_interacted(source)
 var master_node
 var interactionParent
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	master_node = get_parent()
 	
@@ -19,18 +18,14 @@ func _ready():
 		$CollisionShape3D.shape = BoxShape3D.new()
 		
 	interaction_interacted.connect(get_node("/root/Scene/UI/Textbox")._on_interaction_interacted)
-	
-	pass # Replace with function body.
 
-	
+func _on_input_event(_camera, event, _position, _normal, _shape_idx):
+	if event is InputEventScreenTouch and event.pressed and $Notify.visible:
+		interaction_interact(interactionParent)
+
 func interaction_can_interact(interactionComponentParent : Node) -> bool:
 	interactionParent = interactionComponentParent
 	return interactionComponentParent is CharacterBody3D
 
 func interaction_interact(_interactionComponentParent : Node) -> void:
 	emit_signal("interaction_interacted", master_node)
-
-
-func _on_input_event(_camera, event, _position, _normal, _shape_idx):
-	if event is InputEventScreenTouch and event.pressed and $Notify.visible:
-		interaction_interact(interactionParent)

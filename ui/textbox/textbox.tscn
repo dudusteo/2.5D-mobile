@@ -4,7 +4,6 @@
 [ext_resource type="Theme" uid="uid://bv62ku0o0fkjp" path="res://ui/ui_theme.tres" id="1_n7x0x"]
 
 [node name="Textbox" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,5 +36,8 @@ grow_vertical = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel/MarginContainer"]
 layout_mode = 2
+mouse_filter = 1
 visible_characters = 0
 visible_ratio = 0.0
+
+[connection signal="gui_input" from="MarginContainer/Panel" to="." method="_on_panel_gui_input"]
