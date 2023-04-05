@@ -39,26 +39,28 @@ func skip_text():
 	change_state(State.FINISHED)
 	
 func _input(event):
-	if event.is_action_pressed("ui_select"):
-		match current_state:
-			State.READY:
-				pass
-			State.READING:
-				skip_text()
-			State.FINISHED:
-				hide_textbox()
-				reset_textbox()
+	if event is InputEvent:
+		if event.is_action_pressed("ui_select"):
+			match current_state:
+				State.READY:
+					pass
+				State.READING:
+					skip_text()
+				State.FINISHED:
+					hide_textbox()
+					reset_textbox()
 
 func _on_panel_gui_input(event):
-	if event is InputEventScreenTouch and event.pressed:
-		match current_state:
-			State.READY:
-				pass
-			State.READING:
-				skip_text()
-			State.FINISHED:
-				hide_textbox()
-				reset_textbox()
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			match current_state:
+				State.READY:
+					pass
+				State.READING:
+					skip_text()
+				State.FINISHED:
+					hide_textbox()
+					reset_textbox()
 
 func _on_tween_finished():
 	change_state(State.FINISHED)
@@ -70,4 +72,4 @@ func _on_interactable_changed(_newInteractable):
 
 func _on_interaction_interacted(source):
 	if current_state == State.READY:
-		add_text(source.name + " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ")
+		add_text("[color=aqua]" + source.name + "[/color] Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ")

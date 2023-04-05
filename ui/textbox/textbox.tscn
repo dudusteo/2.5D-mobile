@@ -37,6 +37,7 @@ grow_vertical = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Panel/MarginContainer"]
 layout_mode = 2
 mouse_filter = 1
+bbcode_enabled = true
 visible_characters = 0
 visible_ratio = 0.0
 

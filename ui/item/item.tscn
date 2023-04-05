@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk7a1dkxq7ley"]
+
+[ext_resource type="Texture2D" uid="uid://bot8jm2la8e22" path="res://icon.svg" id="1_1dxfs"]
+
+[node name="Item" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 128.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_1dxfs")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No name"

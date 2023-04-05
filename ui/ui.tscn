@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7uc5t7c0yj0o"]
+[gd_scene load_steps=7 format=3 uid="uid://c7uc5t7c0yj0o"]
 
 [ext_resource type="Script" path="res://ui/ui.gd" id="1_v1fc4"]
+[ext_resource type="PackedScene" uid="uid://dbbseya0pthi1" path="res://ui/pause/pause.tscn" id="2_gtv40"]
 [ext_resource type="PackedScene" uid="uid://psqk5mucbhyl" path="res://ui/joystick/virtual_joystick.tscn" id="3_bttcx"]
 [ext_resource type="PackedScene" uid="uid://u3hhvaxvidtl" path="res://ui/button/button.tscn" id="3_gwbcq"]
 [ext_resource type="PackedScene" uid="uid://b52bih0rimosc" path="res://ui/textbox/textbox.tscn" id="4_t5xkn"]
+[ext_resource type="PackedScene" uid="uid://dwc14tbwh2283" path="res://ui/pause_menu/pause_menu.tscn" id="6_niywb"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -41,6 +43,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
+
+[node name="Pause" parent="GridContainer/TopRight" instance=ExtResource("2_gtv40")]
+layout_mode = 1
 
 [node name="BottomLeft" type="Control" parent="GridContainer"]
 layout_mode = 2
@@ -90,4 +95,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Textbox" parent="." instance=ExtResource("4_t5xkn")]
+layout_mode = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_niywb")]
 layout_mode = 1

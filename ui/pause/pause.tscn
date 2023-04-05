@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbbseya0pthi1"]
+
+[ext_resource type="Script" path="res://ui/pause/pause.gd" id="1_021j4"]
+[ext_resource type="Texture2D" uid="uid://j5s3g1imybfd" path="res://ui/pause/textures/pause-icon-18-256.png" id="1_781qt"]
+
+[node name="Pause" type="Control"]
+modulate = Color(1, 1, 1, 0.509804)
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_021j4")
+
+[node name="Button" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_bottom = 256.0
+grow_horizontal = 0
+texture = ExtResource("1_781qt")
+stretch_mode = 6
+
+[connection signal="gui_input" from="Button" to="." method="_on_texture_rect_gui_input"]
